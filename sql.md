@@ -10,6 +10,12 @@
 
 Например, для подключения к файлу Access, надо знать тип [драйвера](https://doc.qt.io/qt-6/sql-driver.html#supported-databases) который следует указать в `SqlDatabase db = QSqlDatabase::addDatabase("QODBC");` и название базы данных (и это не просто путь к файлу)
 
+```attention
+Внимание:
+
+Компилятор С++ должен быть той-же битности (32 бита или 64 бита), что и установленный Access, иначе драйвер не будет работать. Также, это означает что должен быть установлен Access. Также это означает, что на Linux этот драйвер работать не будет.
+```
+
 ```cpp
 QSqlDatabase db = QSqlDatabase::addDatabase("QODBC");
 db.setDatabaseName("Driver={Microsoft Access Driver (*.mdb, *.accdb)};DSN='';DBQ=C:\\path\\to\\myDB.mdb");
